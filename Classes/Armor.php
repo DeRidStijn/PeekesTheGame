@@ -8,5 +8,20 @@
 
 class Armor /*extends item*/
 {
+    protected $armorName;
+    protected $armorResistance;
 
+    public function __construct($armorName, $armorResistance)
+    {
+        $this->armorName = $armorName;
+        $this->armorResistance = $armorResistance;
+    }
+
+    public function getArmorName(){
+        return $this->armorName;
+    }
+
+    public function getArmorResistance(){
+        return $this->armorResistance;
+    }
 }
