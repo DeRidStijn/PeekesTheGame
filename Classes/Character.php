@@ -24,5 +24,9 @@ class Character
     public function attack(){
         return $this->weapon->getDamage();
     }
-    
+
+    public function switchWeapon($weaponName){
+        $this->weapon = new Weapon($weaponName);
+    }
+
 }

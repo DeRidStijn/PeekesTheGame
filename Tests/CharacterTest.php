@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: deridstijn
- * Date: 4/17/18
- * Time: 1:23 PM
- */
 
 
 class CharacterTest extends \PHPUnit\Framework\TestCase
@@ -12,7 +6,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
     protected $char;
     public function initCharacter()
     {
-        $char = new Character();
+        $this->char = new Character();
     }
 
     /**
@@ -23,5 +17,15 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
         $result = $this->char->getHealth();
         $expectedResult = 85;
         $this->assertSame($expectedResult, $result, "the character did not have 85 hp after being hit 15");
+    }
+
+    /**
+     * @test
+     */
+    public function characterCanSwitchWeapon(){
+        $this->char->switchWeapon('spear');
+        $result = $this->char->attack();
+        $expectedResult = 20;
+        $this->assertSame($expectedResult, $result, "the attack didn't do 20 damage, so he is not wielding a spear");
     }
 }
