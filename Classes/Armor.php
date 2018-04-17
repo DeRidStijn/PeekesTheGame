@@ -21,7 +21,7 @@ class Armor /*extends item*/
         return $this->armorName;
     }
 
-    public function getArmorResistance(){
+    public function getResistance(){
         return $this->armorResistance;
     }
 }

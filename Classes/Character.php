@@ -29,4 +29,16 @@ class Character
         $this->weapon = new Weapon($weaponName);
     }
 
+    public function switchArmor($armorName){
+        $this->armor = new Armor($armorName);
+    }
+
+    public function getArmorName(){
+        return $this->getArmorName();
+    }
+
+    public function getArmorResistance(){
+        return $this->armor->getResistance();
+    }
+
 }

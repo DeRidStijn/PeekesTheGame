@@ -34,7 +34,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
      */
     public function characterCanSwitchArmor(){
         $this->char->switchArmor('iron');
-        $result = $this->char->getArmor();
+        $result = $this->char->getArmorResistance();
         $expectedResult = 30;
         $this->assertEquals($expectedResult, $result, "the get armor did not return 30, so he is not wearing iron armor");
     }
