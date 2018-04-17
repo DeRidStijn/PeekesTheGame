@@ -34,7 +34,28 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(1, $turn, "the next turn does not seem to be turn 1");
     }
 
+    /**
+     * @test
+     */
+    public function characterCanAttackDuringHisTurn(){
+
+    }
+
+    /**
+     * @test
+     */
+    public function characterCanChangeStrategyOnAThirdTurn(){
+        $this->gameHandler->changeStrategy('defensive');
+        $result = $this->getStrategy('joske');
+        $expectedResult = 'defensive';
+        $this->assertEquals($expectedResult, $result, "the character did not switch to a defensive strategy");
+    }
+
+    /**
+     * @test
+     */
     public function characterCanWinTheGame(){
 
     }
+
 }
