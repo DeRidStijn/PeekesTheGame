@@ -1,6 +1,6 @@
 <?php
 
-class GameController
+class GameHandler
 {
     public function __construct()
     {
