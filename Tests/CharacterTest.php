@@ -28,4 +28,14 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
         $expectedResult = 20;
         $this->assertSame($expectedResult, $result, "the attack didn't do 20 damage, so he is not wielding a spear");
     }
+
+    /**
+     * @test
+     */
+    public function characterCanSwitchArmor(){
+        $this->char->switchArmor('iron');
+        $result = $this->char->getArmor();
+        $expectedResult = 30;
+        $this->assertEquals($expectedResult, $result, "the get armor did not return 30, so he is not wearing iron armor");
+    }
 }
