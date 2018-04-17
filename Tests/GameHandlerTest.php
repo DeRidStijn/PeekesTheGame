@@ -35,6 +35,6 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
     }
 
     public function characterCanWinTheGame(){
-        
+
     }
 }
