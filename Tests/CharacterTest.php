@@ -4,7 +4,7 @@
 class CharacterTest extends \PHPUnit\Framework\TestCase
 {
     protected $char;
-    public function initCharacter()
+    public function setUp()
     {
         $this->char = new Character();
     }
