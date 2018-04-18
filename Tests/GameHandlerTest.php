@@ -3,7 +3,9 @@
 namespace Tests;
 
 use Classes\GameHandler;
-use Classes\Autoloader;
+
+include_once(__DIR__.'/../autoload.php');
+
 class GameHandlerTest extends \PHPUnit\Framework\TestCase
 {
     protected $gameHandler;
@@ -19,7 +21,6 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
         $expectedResult = 'jefke';
         $this->assertEquals($expectedResult, $nextPlayer, "the next character does not seem to be jefke");
     }
-
     /**
      * @test
      */
@@ -46,11 +47,6 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expectedResult, $result, "the character did not switch to a defensive strategy");
     }
 
-    /**
-     * @test
-     */
-    public function characterCanWinTheGame(){
 
-    }
 
 }

@@ -13,7 +13,7 @@ spl_autoload_register(function ($class_name) use ($map) {
     preg_match('/(.)*\\\/', $class_name, $namespaceMatches);
     //geef $namespace de eerste value van de array $namespaceMatches mee
     $namespace = reset($namespaceMatches);
-    //$className: de naam van de class wordt achter de namespace geplaatst
+    //$className: de naam van de class wordt uit de namespace gehaald
     $className = str_replace($namespace, '',$class_name);
     //als de namespace voorkomt in de map array
     if(isset($map[$namespace])) {

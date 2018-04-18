@@ -8,9 +8,9 @@ class Character
     protected $weapon;
     protected $armor;
 
-    public function __construct(int $health, Weapon $weapon, Armor $armor)
+    public function __construct($name,  $weapon,  $armor)
     {
-        $this->health = $health;
+        $this->health = 100;
         $this->weapon = new Weapon($weapon);
         $this->armor = new Armor($armor);
     }

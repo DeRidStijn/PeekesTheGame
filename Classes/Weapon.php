@@ -7,10 +7,24 @@ class Weapon /*extends item*/
     protected $weaponName;
     protected $damage;
 
-    public function __construct($weaponName, $damage)
+    public function __construct(string $weaponName)
     {
         $this->weaponName = $weaponName;
-        $this->damage = $damage;
+
+        switch($weaponName){
+            case "spear": $this->damage = 20;
+            break;
+
+            case 'bow': $this->damage = 5;
+            break;
+
+            case 'punch': $this->damage = 1;
+            break;
+
+            default:
+                $this->weaponName = 'punch' &&
+                $this->damage = 1;
+        }
     }
 
     public function getWeaponName(){

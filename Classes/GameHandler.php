@@ -10,8 +10,8 @@ class GameHandler
     protected $characterTurn, $gameTurn;
     public function __construct(string $char1Name, string $char2Name)
     {
-        $this->characters ['character1'] = new Character($char1Name);
-        $this->characters ['character2'] = new Character($char2Name);
+        $this->characters ['character1'] = new Character($char1Name, "spear", "iron");
+        $this->characters ['character2'] = new Character($char2Name, "bow", "leather");
         $this->characterTurn = 1;
         $this->gameTurn = 0;
     }

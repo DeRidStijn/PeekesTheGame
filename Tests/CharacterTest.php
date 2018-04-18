@@ -1,12 +1,14 @@
 <?php
-
+namespace Tests;
+use Classes\Character;
+include_once(__DIR__.'/../autoload.php');
 
 class CharacterTest extends \PHPUnit\Framework\TestCase
 {
     protected $char;
     public function setUp()
     {
-        $this->char = new Character();
+        $this->char = new Character('joske', 'bow', 'iron');
     }
 
     /**

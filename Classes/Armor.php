@@ -7,10 +7,21 @@ class Armor /*extends item*/
     protected $armorName;
     protected $armorResistance;
 
-    public function __construct($armorName, $armorResistance)
+    public function __construct($armorName)
     {
         $this->armorName = $armorName;
-        $this->armorResistance = $armorResistance;
+        switch ($armorName){
+            case 'leather': $this->armorResistance = 10;
+                break;
+            case 'iron': $this->armorResistance = 30;
+                break;
+            case 'platinum': $this->armorResistance = 60;
+                break;
+            default:
+                $this->armorName = 'leather' &&
+                $this->armorResistance = 10;
+
+        }
     }
 
     public function getArmorName(){
