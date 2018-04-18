@@ -8,7 +8,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
     protected $char;
     public function setUp()
     {
-        $this->char = new Character('joske', 'bow', 'iron');
+        $this->char = new Character('joske', 'bow', 'unarmed');
     }
 
     /**
@@ -37,7 +37,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
     public function characterCanSwitchArmor(){
         $this->char->switchArmor('iron');
         $result = $this->char->getArmorResistance();
-        $expectedResult = 30;
+        $expectedResult = 0.3;
         $this->assertEquals($expectedResult, $result, "the get armor did not return 30, so he is not wearing iron armor");
     }
 

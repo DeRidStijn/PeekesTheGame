@@ -11,15 +11,17 @@ class Armor /*extends item*/
     {
         $this->armorName = $armorName;
         switch ($armorName){
-            case 'leather': $this->armorResistance = 10;
+            case 'unarmed': $this->armorResistance = 0;
                 break;
-            case 'iron': $this->armorResistance = 30;
+            case 'leather': $this->armorResistance = 0.10;
                 break;
-            case 'platinum': $this->armorResistance = 60;
+            case 'iron': $this->armorResistance = 0.30;
+                break;
+            case 'platinum': $this->armorResistance = 0.60;
                 break;
             default:
-                $this->armorName = 'leather' &&
-                $this->armorResistance = 10;
+                $this->armorName = 'unarmed' &&
+                $this->armorResistance = 0;
 
         }
     }

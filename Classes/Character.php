@@ -20,7 +20,8 @@ class Character
     }
 
     public function takeDamage($damage){
-        $this->health -= $damage;
+        $damageThrougArmor = $damage * (1 - $this->armor->getResistance());
+        $this->health -= $damageThrougArmor;
     }
 
     public function attack(){
