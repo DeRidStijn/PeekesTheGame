@@ -1,5 +1,9 @@
 <?php
 
+namespace Classes;
+
+use Classes\Character;
+
 class GameHandler
 {
     protected $characters = [];

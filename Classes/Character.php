@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes;
+
 class Character
 {
     protected $health;

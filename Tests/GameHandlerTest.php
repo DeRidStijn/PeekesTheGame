@@ -1,18 +1,13 @@
 <?php
-/*spl_autoload_register(function($classname) {
-    require_once __DIR__ . '/PHPUnit/* ';
-    echo "Want to load $classname.\n";
-    throw new Exception("Unable to load $classname.");
-    $file = __DIR__ . "/Classes" . "{$classname}.php";
-    if (file_exists($file)) {
-        require_once($file);
-    }
-});*/
 
+namespace Tests;
+
+use Classes\GameHandler;
+use Classes\Autoloader;
 class GameHandlerTest extends \PHPUnit\Framework\TestCase
 {
     protected $gameHandler;
-    public function setup(){
+    public function setUp(){
         $this->gameHandler = new GameHandler('joske', 'jefke');
     }
     /**
