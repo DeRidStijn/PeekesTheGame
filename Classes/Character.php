@@ -4,18 +4,23 @@ namespace Classes;
 
 class Character
 {
+    protected $name;
     protected $health;
     protected $weapon;
     protected $armor;
     protected $isAlive;
     public function __construct($name,  $weapon,  $armor)
     {
+        $this->name = $name;
         $this->health = 100;
         $this->isAlive = true;
         $this->weapon = new Weapon($weapon);
         $this->armor = new Armor($armor);
     }
 
+    public function getName(){
+        return $this->name;
+    }
     public function getHealth(){
         return $this->health;
     }

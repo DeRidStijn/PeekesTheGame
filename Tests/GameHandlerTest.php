@@ -15,8 +15,8 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function otherCharactersTurn(){
-        $this->gameHandler->nextCharacterTurn();
+    public function gameCanSwitchCharacterAfterSomeoneAttacks(){
+        $this->gameHandler->attack('joske', 'jefke');
         $nextPlayer = $this->gameHandler->getCharacterTurn();
         $expectedResult = 'jefke';
         $this->assertEquals($expectedResult, $nextPlayer, "the next character does not seem to be jefke");

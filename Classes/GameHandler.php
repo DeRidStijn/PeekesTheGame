@@ -8,41 +8,49 @@ class GameHandler
 {
     protected $characters = [];
     protected $characterTurn, $gameTurn;
+
     public function __construct(string $char1Name, string $char2Name)
     {
-        $this->characters ['character1'] = new Character($char1Name, "spear", "iron");
-        $this->characters ['character2'] = new Character($char2Name, "bow", "leather");
-        $this->characterTurn = 1;
+        $this->characters[$char1Name] = new Character($char1Name, "spear", "iron");
+        $this->characters[$char2Name] = new Character($char2Name, "bow", "leather");
+        $this->characterTurn = $char1Name;
         $this->gameTurn = 0;
     }
 
-    public function otherCharactersTurn(){
-        if ($this->checkIfGameIsWon() === true){
-            echo 'tis gedaan';
-        }
 
-        else{
-            if ($this->characterTurn == 1){
-                $this->characterTurn = 2;
-            }
-            else{
-                $this->characterTurn = 1;
-            }
-        }
-    }
 
-    public function nextGameTurn(){
+    public function nextGameTurn()
+    {
         $this->gameTurn += 1;
     }
 
-    public function checkIfGameIsWon(){
-        foreach ($this->characters as $char){
-            if($char->checkHealth >= 0) {
-                return true;
-            }
-            else{
-                return false;
+    public function getCharacterTurn()
+    {
+        return $this->characterTurn;
+    }
+
+    public function getGameTurn()
+    {
+        return $this->gameTurn;
+    }
+
+    public function checkIfGameIsWon()
+    {
+        foreach ($this->characters as $char) {
+            if ($char->getIsAlive === false) {
+                return $char->getName() . " is dead!";
             }
         }
+    }
+
+    public function attack($attacker, $target){
+        $damage = $this->characters[$attacker]->attack();
+        $this->characters[$target]->takeDamage($damage);
+        $this->nextCharacterTurn($target);
+
+    }
+
+    public function nextCharacterTurn($characterName){
+        $this->characterTurn =$characterName;
     }
 }
