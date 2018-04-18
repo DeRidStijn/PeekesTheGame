@@ -46,9 +46,18 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
      */
     public function charactersArmorWorks(){
         $this->char->switchArmor('iron');
-        $this->char->takeDamage('100');
+        $this->char->takeDamage(100);
         $result = $this->char->getHealth();
         $expectedResult = 30;
         $this->assertEquals($expectedResult, $result, "the armor did not block 30% of the damage");
+    }
+
+    /**
+     * @test
+     */
+    public function characterCanDie(){
+        $this->char->takeDamage(100);
+        $result = $this->char->getIsAlive();
+        $this->assertFalse($result, "the character gives true to isAlive so is not dead");
     }
 }
