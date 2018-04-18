@@ -40,4 +40,15 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
         $expectedResult = 30;
         $this->assertEquals($expectedResult, $result, "the get armor did not return 30, so he is not wearing iron armor");
     }
+
+    /**
+     * @test
+     */
+    public function charactersArmorWorks(){
+        $this->char->switchArmor('iron');
+        $this->char->takeDamage('100');
+        $result = $this->char->getHealth();
+        $expectedResult = 30;
+        $this->assertEquals($expectedResult, $result, "the armor did not block 30% of the damage");
+    }
 }

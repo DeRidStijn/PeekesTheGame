@@ -19,3 +19,35 @@ Diffirent fighting strategies:
 Offensive
 Defensive
 Balanced
+
+Game
+-
+player1 = new Player
+
+player2 = new Player
+
+round
+
+playersTurn
+
+Player
+-
+name
+
+hitpoints
+
+weapon = new Weapon
+
+armor = new Armor
+
+Weapon
+-
+name
+
+damage
+
+Armor
+-
+name
+
+damageReduction
