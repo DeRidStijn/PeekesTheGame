@@ -12,7 +12,7 @@ class Character
     public function __construct($name,  $weapon,  $armor)
     {
         $this->name = $name;
-        $this->health = 100;
+        $this->health = 50;
         $this->isAlive = true;
         $this->weapon = new Weapon($weapon);
         $this->armor = new Armor($armor);

@@ -63,15 +63,20 @@ class GameHandler
     }
 
     public function attack($attacker, $target){
+        if ($this->characterTurn == $this->char1Name){
+            $this->nextGameTurn();
+            print("\n Round " . $this->gameTurn . "\n -------------------- \n \n");
+
+        }
         $damage = $this->characters[$attacker]->getWeaponDamage();
         $this->characters[$target]->takeDamage($damage);
-        printf($attacker . ' attacks ' . $target . ' with '. $this->characters[$attacker]->getWeaponName() . ' for ' . $damage . " damage \n");
+        print($attacker . ' attacks ' . $target . ' with '. $this->characters[$attacker]->getWeaponName() . ' for ' . $damage . " damage \n");
         $negatedDamage = ($this->characters[$target]->getArmorResistance() * 100) . '%';
         print($target . "'s " . $this->characters[$target]->getArmorName() ." negated " . $negatedDamage . " of the damage \n");
-        sleep(1);
-        printf( $target . ' now has ' . $this->characters[$target]->getHealth() . " hitpoints \n");
+        //sleep(1);
+        print( $target . ' now has ' . $this->characters[$target]->getHealth() . " hitpoints \n");
         $this->nextCharacterTurn($target);
-        sleep(1);
+        //sleep(1);
         if ($this->checkIfGameIsWon() == false){
             $this->attack($target, $attacker);
         }
@@ -92,5 +97,9 @@ class GameHandler
     public function getGameTurn()
     {
         return $this->gameTurn;
+    }
+
+    public function getCharacters(){
+        return $this->characters;
     }
 }

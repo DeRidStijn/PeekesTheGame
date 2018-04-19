@@ -8,19 +8,20 @@ include_once(__DIR__.'/../autoload.php');
 
 class GameHandlerTest extends \PHPUnit\Framework\TestCase
 {
+    /** @var GameHandler */
     protected $gameHandler;
+    protected $allowedWeapons;
+    protected $allowedArmor;
     public function setUp(){
         $this->gameHandler = new GameHandler('joske', 'jefke');
+        $this->allowedWeapons = [
+            'punch', 'spear', 'bow'
+        ];
+        $this->allowedArmor = [
+            'leather', 'iron', 'platinum'
+        ];
     }
-    /**
-     * @test
-     */
-    public function gameCanSwitchCharacterAfterSomeoneAttacks(){
-        $this->gameHandler->attack('joske', 'jefke');
-        $nextPlayer = $this->gameHandler->getCharacterTurn();
-        $expectedResult = 'jefke';
-        $this->assertEquals($expectedResult, $nextPlayer, "the next character does not seem to be jefke");
-    }
+
     /**
      * @test
      */
@@ -33,20 +34,23 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function characterCanAttackDuringHisTurn(){
-
+    public function randomWeaponSpawnsOneOfTheAllowedWeapons(){
+        $characters = $this ->gameHandler->getCharacters();
+        foreach ($characters as $char){
+            $this->assertContains($char->getWeaponName(), $this->allowedWeapons,
+                "the random weapon is not part of the allowed weapons list");
+        }
     }
-
     /**
      * @test
      */
-    public function characterCanChangeStrategyOnAThirdTurn(){
-        $this->gameHandler->changeStrategy('defensive');
-        $result = $this->getStrategy('joske');
-        $expectedResult = 'defensive';
-        $this->assertEquals($expectedResult, $result, "the character did not switch to a defensive strategy");
+    public function randomArmorSpawnsOneOfTheAllowArmors(){
+        $character = $this->gameHandler->getCharacters();
+        foreach ($character as $char){
+            $this->assertContains($char->getArmorName(), $this->allowedArmor);
+        }
     }
-
+ 
 
 
 }
