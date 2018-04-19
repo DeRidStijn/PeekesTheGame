@@ -2,9 +2,9 @@
 
 namespace Classes;
 
-use Classes\Character;
+use Interfaces\GameHandlerInterface;
 
-class GameHandler
+class GameHandler implements GameHandlerInterface
 {
     protected $characters = [];
     protected $characterTurn, $gameTurn;
@@ -21,7 +21,7 @@ class GameHandler
         $this->gameTurn = 0;
     }
     //@todo: create logic for strategies and make characters able to change their strategy every 3 rounds
-    protected function spawnRandomWeapon(){
+    public function spawnRandomWeapon(): string{
         $rnd = rand(0,2);
         switch ($rnd){
             case 0: return 'bow';
@@ -30,10 +30,12 @@ class GameHandler
                 break;
             case 2: return 'spear';
                 break;
+            default: return 'punch';
+                break;
         }
     }
 
-    protected function spawnRandomArmor(){
+    public function spawnRandomArmor(): string{
         $rnd = rand(0,2);
         switch ($rnd){
             case 0: return 'unarmed';
@@ -43,6 +45,8 @@ class GameHandler
             case 2: return 'iron';
                 break;
             case 3: return 'platinum';
+                break;
+            default: return 'unarmed';
                 break;
         }
     }
@@ -66,7 +70,7 @@ class GameHandler
         }
     }
 
-    public function attack($attacker, $target){
+    public function attack(string $attacker, string $target){
         if ($this->characterTurn == $this->char1Name){
             $this->nextGameTurn();
             print("\n Round " . $this->gameTurn . "\n -------------------- \n \n");
@@ -92,7 +96,7 @@ class GameHandler
         }
     }
 
-    public function nextCharacterTurn($characterName){
+    public function nextCharacterTurn(string $characterName){
         $this->characterTurn =$characterName;
     }
 
