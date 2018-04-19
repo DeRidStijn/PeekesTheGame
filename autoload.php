@@ -2,7 +2,8 @@
 
 $map = [
   'Classes\\' => 'Classes',
-    'Bar\\' => 'Foo'
+    'Bar\\' => 'Foo',
+    'Interfaces\\' => 'Interfaces'
 ];
 
 //autoload wordt gecalled met een classname en gebruikt de array map wanneer hij de class niet kent

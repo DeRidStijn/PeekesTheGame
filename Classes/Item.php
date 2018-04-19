@@ -2,8 +2,9 @@
 
 namespace Classes;
 
+use Interfaces\ItemInterface;
 
-class Item
+class Item implements ItemInterface
 {
     protected $itemName;
     protected $itemDescription;
@@ -13,11 +14,11 @@ class Item
         $this->itemDescription = $itemDescription;
     }
 
-    public function getItemName(){
+    public function getItemName(): string{
         return $this->itemName;
     }
 
-    public function getItemDescription(){
+    public function getItemDescription(): string{
         return $this->itemDescription;
     }
 }

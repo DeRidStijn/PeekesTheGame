@@ -26,10 +26,6 @@ class Weapon extends Item
         }
     }
 
-    public function getWeaponName(): string{
-        return $this->itemName;
-    }
-
     public function getDamage(): float{
         return $this->damage;
     }

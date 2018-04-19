@@ -40,10 +40,10 @@ class Character
         return $this->weapon->getDamage();
     }
     public function getWeaponName(): string{
-        return $this->weapon->getWeaponName();
+        return $this->weapon->getItemName();
     }
     public function getArmorName(): string{
-        return $this->armor->getArmorName();
+        return $this->armor->getItemName();
     }
 
     public function getArmorResistance(): float{
