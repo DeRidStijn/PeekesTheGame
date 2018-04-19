@@ -11,8 +11,10 @@ class GameHandler
     protected $char1Name, $char2Name;
     public function __construct(string $char1Name, string $char2Name)
     {
-        $this->characters[$char1Name] = new Character($char1Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
-        $this->characters[$char2Name] = new Character($char2Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
+        $this->characters[$char1Name] = new Character($char1Name, $this->spawnRandomWeapon(),
+            'patatten', $this->spawnRandomArmor(), 'peren');
+        $this->characters[$char2Name] = new Character($char2Name, $this->spawnRandomWeapon(),
+            'frietjes', $this->spawnRandomArmor(), 'pizza');
         $this->char1Name = $char1Name;
         $this->char2Name = $char2Name;
         $this->characterTurn = $char1Name;
@@ -34,11 +36,13 @@ class GameHandler
     protected function spawnRandomArmor(){
         $rnd = rand(0,2);
         switch ($rnd){
-            case 0: return 'leather';
+            case 0: return 'unarmed';
                 break;
-            case 1: return 'iron';
+            case 1: return 'leather';
                 break;
-            case 2: return 'platinum';
+            case 2: return 'iron';
+                break;
+            case 3: return 'platinum';
                 break;
         }
     }
@@ -57,7 +61,7 @@ class GameHandler
     {
         foreach ($this->characters as $char) {
             if ($char->getIsAlive() === false) {
-                return $char->getName() . " is dead!";
+                return strval($char->getName() . " is dead!");
             }
         }
     }
@@ -68,13 +72,16 @@ class GameHandler
             print("\n Round " . $this->gameTurn . "\n -------------------- \n \n");
 
         }
+
         $damage = $this->characters[$attacker]->getWeaponDamage();
         $this->characters[$target]->takeDamage($damage);
+
         print($attacker . ' attacks ' . $target . ' with '. $this->characters[$attacker]->getWeaponName() . ' for ' . $damage . " damage \n");
         $negatedDamage = ($this->characters[$target]->getArmorResistance() * 100) . '%';
         print($target . "'s " . $this->characters[$target]->getArmorName() ." negated " . $negatedDamage . " of the damage \n");
         //sleep(1);
         print( $target . ' now has ' . $this->characters[$target]->getHealth() . " hitpoints \n");
+
         $this->nextCharacterTurn($target);
         //sleep(1);
         if ($this->checkIfGameIsWon() == false){
@@ -89,13 +96,11 @@ class GameHandler
         $this->characterTurn =$characterName;
     }
 
-    public function getCharacterTurn()
-    {
+    public function getCharacterTurn(): string{
         return $this->characterTurn;
     }
 
-    public function getGameTurn()
-    {
+    public function getGameTurn(): int{
         return $this->gameTurn;
     }
 

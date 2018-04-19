@@ -9,13 +9,13 @@ class Character
     protected $weapon;
     protected $armor;
     protected $isAlive;
-    public function __construct($name,  $weapon,  $armor)
+    public function __construct(string $name,  string $weaponName, string $weaponDescription,  $armorName, $armorDescription)
     {
         $this->name = $name;
         $this->health = 50;
         $this->isAlive = true;
-        $this->weapon = new Weapon($weapon);
-        $this->armor = new Armor($armor);
+        $this->weapon = new Weapon($weaponName, $weaponDescription);
+        $this->armor = new Armor($armorName, $armorDescription);
     }
 
     public function takeDamage($damage){
@@ -26,39 +26,39 @@ class Character
         }
     }
 
-    public function switchWeapon($weaponName){
-        $this->weapon = new Weapon($weaponName);
+    public function switchWeapon(string $weaponName, string $weaponDescription){
+        $this->weapon = new Weapon($weaponName, $weaponDescription);
     }
 
-    public function switchArmor($armorName){
-        $this->armor = new Armor($armorName);
+    public function switchArmor(string $armorName, string $armorDescription){
+        $this->armor = new Armor($armorName, $armorDescription);
     }
     public function setHealth($health){
         $this->health = $health;
     }
-    public function getWeaponDamage(){
+    public function getWeaponDamage(): float{
         return $this->weapon->getDamage();
     }
-    public function getWeaponName(){
+    public function getWeaponName(): string{
         return $this->weapon->getWeaponName();
     }
-    public function getArmorName(){
+    public function getArmorName(): string{
         return $this->armor->getArmorName();
     }
 
-    public function getArmorResistance(){
+    public function getArmorResistance(): float{
         return $this->armor->getResistance();
     }
 
-    public function getIsAlive(){
+    public function getIsAlive(): bool{
         return $this->isAlive;
     }
 
-    public function getName(){
+    public function getName(): string{
         return $this->name;
     }
 
-    public function getHealth(){
+    public function getHealth(): float{
         return $this->health;
     }
 

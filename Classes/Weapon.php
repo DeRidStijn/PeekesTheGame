@@ -2,14 +2,13 @@
 
 namespace Classes;
 
-class Weapon /*extends item*/
+class Weapon extends Item
 {
-    protected $weaponName;
     protected $damage;
 
-    public function __construct(string $weaponName)
+    public function __construct(string $weaponName, string $weaponDescription)
     {
-        $this->weaponName = $weaponName;
+        parent::__construct($weaponName, $weaponDescription);
 
         switch($weaponName){
             case "spear": $this->damage = 20;
@@ -22,16 +21,16 @@ class Weapon /*extends item*/
             break;
 
             default:
-                $this->weaponName = 'punch' &&
+                $this->itemName = 'punch' &&
                 $this->damage = 1;
         }
     }
 
-    public function getWeaponName(){
-        return $this->weaponName;
+    public function getWeaponName(): string{
+        return $this->itemName;
     }
 
-    public function getDamage(){
+    public function getDamage(): float{
         return $this->damage;
     }
 }

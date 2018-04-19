@@ -2,14 +2,15 @@
 
 namespace Classes;
 
-class Armor /*extends item*/
+class Armor extends Item
 {
     protected $armorName;
     protected $armorResistance;
 
-    public function __construct($armorName)
+    public function __construct(string $armorName, string $armorDescription)
     {
-        $this->armorName = $armorName;
+        parent::__construct($armorName, $armorDescription);
+
         switch ($armorName){
             case 'unarmed': $this->armorResistance = 0;
                 break;
@@ -20,17 +21,17 @@ class Armor /*extends item*/
             case 'platinum': $this->armorResistance = 0.60;
                 break;
             default:
-                $this->armorName = 'unarmed' &&
+                $this->itemName = 'unarmed' &&
                 $this->armorResistance = 0;
 
         }
     }
 
-    public function getArmorName(){
-        return $this->armorName;
+    public function getArmorName(): string{
+        return $this->itemName;
     }
 
-    public function getResistance(){
+    public function getResistance(): float{
         return $this->armorResistance;
     }
 }

@@ -18,7 +18,7 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
             'punch', 'spear', 'bow'
         ];
         $this->allowedArmor = [
-            'leather', 'iron', 'platinum'
+            'unarmed', 'leather', 'iron', 'platinum'
         ];
     }
 
