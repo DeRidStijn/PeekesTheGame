@@ -33,7 +33,9 @@ class Character
     public function switchArmor($armorName){
         $this->armor = new Armor($armorName);
     }
-
+    public function setHealth($health){
+        $this->health = $health;
+    }
     public function getWeaponDamage(){
         return $this->weapon->getDamage();
     }

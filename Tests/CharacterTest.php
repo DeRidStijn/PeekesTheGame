@@ -17,7 +17,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
     public function characterCanTakeDamage(){
         $this->char->takeDamage(15);
         $result = $this->char->getHealth();
-        $expectedResult = 85;
+        $expectedResult = 35;
         $this->assertSame($expectedResult, $result, "the character did not have 85 hp after being hit 15");
     }
 
@@ -46,6 +46,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
      */
     public function charactersArmorWorks(){
         $this->char->switchArmor('iron');
+        $this->char->setHealth(100);
         $this->char->takeDamage(100);
         $result = $this->char->getHealth();
         $expectedResult = 30;

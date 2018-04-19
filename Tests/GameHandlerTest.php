@@ -50,7 +50,7 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
             $this->assertContains($char->getArmorName(), $this->allowedArmor);
         }
     }
- 
+
 
 
 }
