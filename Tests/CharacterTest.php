@@ -26,7 +26,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
      */
     public function characterCanSwitchWeapon(){
         $this->char->switchWeapon('spear');
-        $result = $this->char->attack();
+        $result = $this->char->getWeaponDamage();
         $expectedResult = 20;
         $this->assertSame($expectedResult, $result, "the attack didn't do 20 damage, so he is not wielding a spear");
     }
