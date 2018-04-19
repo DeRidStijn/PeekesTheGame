@@ -11,10 +11,8 @@ class GameHandler implements GameHandlerInterface
     protected $char1Name, $char2Name;
     public function __construct(string $char1Name, string $char2Name)
     {
-        $this->characters[$char1Name] = new Character($char1Name, $this->spawnRandomWeapon(),
-            'patatten', $this->spawnRandomArmor(), 'peren');
-        $this->characters[$char2Name] = new Character($char2Name, $this->spawnRandomWeapon(),
-            'frietjes', $this->spawnRandomArmor(), 'pizza');
+        $this->characters[$char1Name] = new Character($char1Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
+        $this->characters[$char2Name] = new Character($char2Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
         $this->char1Name = $char1Name;
         $this->char2Name = $char2Name;
         $this->characterTurn = $char1Name;
