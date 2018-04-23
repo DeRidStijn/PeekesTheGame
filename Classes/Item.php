@@ -2,9 +2,7 @@
 
 namespace Classes;
 
-use Interfaces\ItemInterface;
-
-class Item implements ItemInterface
+class Item extends ItemAbstr
 {
     use \Traits\RandomDescriptionGenerator;
 
