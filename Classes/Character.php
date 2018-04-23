@@ -25,6 +25,7 @@ class Character
         $damageThrougArmor = $damage * (1 - $this->armor->getResistance());
         $this->health -= $damageThrougArmor;
         if ($this->health <= 0){
+            $this->health = 0;
             $this->isAlive = false;
         }
     }

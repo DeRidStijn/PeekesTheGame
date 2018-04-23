@@ -12,5 +12,5 @@ namespace Classes;
 abstract class ItemAbstr
 {
     abstract public function __construct($itemName);
-    abstract public function getItemName();
+    abstract public function getItemName(): string;
 }

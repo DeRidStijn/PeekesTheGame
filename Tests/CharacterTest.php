@@ -58,6 +58,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
      * @test
      */
     public function characterCanDie(){
+        $this->char->switchArmor('potato chainmail', 0);
         $this->char->takeDamage(100);
         $result = $this->char->getIsAlive();
         $this->assertFalse($result, "the character gives true to isAlive so is not dead");
