@@ -2,8 +2,6 @@
 namespace Interfaces;
 
 interface GameHandlerInterface{
-    public function spawnRandomWeapon(): string;
-    public function spawnRandomArmor(): string;
 
     public function startGame();
     public function nextGameTurn();

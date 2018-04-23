@@ -8,8 +8,7 @@ class CharacterTest extends \PHPUnit\Framework\TestCase
     protected $char;
     public function setUp()
     {
-        $this->char = new Character('joske', 'bow', 'boog schiet patatten',
-            'unarmed', 'verdedigd just niks');
+        $this->char = new Character('joske');
     }
 
     /**

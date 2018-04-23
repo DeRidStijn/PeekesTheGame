@@ -10,14 +10,14 @@ class Character
     protected $weapon;
     protected $armor;
     protected $isAlive;
-    public function __construct(string $name,  string $weaponName, string  $armorName)
+    public function __construct(string $name)
     {
 
         $this->name = $name;
         $this->health = 50;
         $this->isAlive = true;
-        $this->weapon = new Weapon($weaponName);
-        $this->armor = new Armor($armorName);
+        $this->weapon = new Weapon();
+        $this->armor = new Armor();
     }
 
     public function takeDamage($damage){

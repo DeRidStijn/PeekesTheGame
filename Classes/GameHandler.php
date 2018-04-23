@@ -11,43 +11,14 @@ class GameHandler implements GameHandlerInterface
     protected $char1Name, $char2Name;
     public function __construct(string $char1Name, string $char2Name)
     {
-        $this->characters[$char1Name] = new Character($char1Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
-        $this->characters[$char2Name] = new Character($char2Name, $this->spawnRandomWeapon(), $this->spawnRandomArmor());
+        $this->characters[$char1Name] = new Character($char1Name);
+        $this->characters[$char2Name] = new Character($char2Name);
         $this->char1Name = $char1Name;
         $this->char2Name = $char2Name;
         $this->characterTurn = $char1Name;
         $this->gameTurn = 0;
     }
     //@todo: create logic for strategies and make characters able to change their strategy every 3 rounds
-    public function spawnRandomWeapon(): string{
-        $rnd = rand(0,2);
-        switch ($rnd){
-            case 0: return 'bow';
-                break;
-            case 1: return 'punch';
-                break;
-            case 2: return 'spear';
-                break;
-            default: return 'punch';
-                break;
-        }
-    }
-
-    public function spawnRandomArmor(): string{
-        $rnd = rand(0,2);
-        switch ($rnd){
-            case 0: return 'unarmed';
-                break;
-            case 1: return 'leather';
-                break;
-            case 2: return 'iron';
-                break;
-            case 3: return 'platinum';
-                break;
-            default: return 'unarmed';
-                break;
-        }
-    }
 
     public function startGame(){
         printf("The game has started \n");
