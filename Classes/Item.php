@@ -10,8 +10,8 @@ class Item implements ItemInterface
 
 
     protected $itemName;
-    public function __construct($itemName)
-    {
+    public function __construct($itemName){
+
         $this->itemName = $itemName;
     }
 

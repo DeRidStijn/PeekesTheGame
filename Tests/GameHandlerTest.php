@@ -30,7 +30,7 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
         $turn = $this->gameHandler->getGameTurn();
         $this->assertEquals(1, $turn, "the next turn does not seem to be turn 1");
     }
-    
+
 
 
 
