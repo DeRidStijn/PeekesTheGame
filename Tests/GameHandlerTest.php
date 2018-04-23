@@ -35,7 +35,7 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
      * @test
      */
     public function aGameCanBeWon(){
-        $this->gameHandler->attack('joske','jefke');
+        $this->gameHandler->startGame();
         $isDead = $this->gameHandler->checkIfGameIsWon();
         $isDead = strpos($isDead, 'is dead');
         $this->assertNotFalse($isDead, "checkIfGameIsWon did not return a string, meaning the game was not won by anyone");

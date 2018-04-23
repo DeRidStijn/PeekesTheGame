@@ -20,6 +20,10 @@ class GameHandler implements GameHandlerInterface
     }
     //@todo: create logic for strategies and make characters able to change their strategy every 3 rounds
 
+    public static $welcomeWord = "Welcome to this epic battleground!";
+    public static function printWelcomeWord(){
+        return self::$welcomeWord;
+    }
     public function startGame(){
         printf("The game has started \n");
         $this->attack($this->char1Name, $this->char2Name);
