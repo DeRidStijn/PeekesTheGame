@@ -1,7 +1,7 @@
 <?php
 
+declare(strict_types=1);
 namespace Classes;
-
 class Character
 {
 
@@ -30,22 +30,26 @@ class Character
         }
     }
 
-    public function switchWeapon(string $weaponName, string $weaponDamage){
+    public function switchWeapon(string $weaponName, float $weaponDamage){
         $this->weapon = new Weapon($weaponName, $weaponDamage);
     }
 
-    public function switchArmor(string $armorName, string $armorResistance){
+    public function switchArmor(string $armorName, float $armorResistance){
         $this->armor = new Armor($armorName, $armorResistance);
     }
+
     public function setHealth($health){
         $this->health = $health;
     }
+
     public function getWeaponDamage(): float{
         return $this->weapon->getDamage();
     }
+
     public function getWeaponName(): string{
         return $this->weapon->getItemName();
     }
+
     public function getArmorName(): string{
         return $this->armor->getItemName();
     }

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 namespace Classes;
 
 class Weapon extends Item
@@ -7,7 +8,7 @@ class Weapon extends Item
     use \Traits\RandomDescriptionGenerator;
     protected $damage;
 
-    public function __construct($weaponName = "", $weaponDamage = null){
+    public function __construct(string $weaponName = "", float $weaponDamage = 0){
 
         parent::__construct($weaponName);
         $this->itemName = $weaponName;

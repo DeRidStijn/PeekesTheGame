@@ -1,11 +1,11 @@
 <?php
-
+declare(strict_types=1);
 namespace Classes;
-
 use Interfaces\GameHandlerInterface;
 
 class GameHandler implements GameHandlerInterface
 {
+
     protected $characters = [];
     protected $characterTurn, $gameTurn;
     protected $char1Name, $char2Name;
