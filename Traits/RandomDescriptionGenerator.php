@@ -59,7 +59,6 @@ trait RandomDescriptionGenerator
         }
         $rndAppend = rand(0, count($this->appends )- 1);
         $this->outputString .= " ". $this->appends[$rndAppend];
-        print($this->outputString);
 
         return $this->outputString;
 

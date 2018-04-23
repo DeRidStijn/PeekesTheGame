@@ -7,12 +7,17 @@ class Weapon extends Item
     use \Traits\RandomDescriptionGenerator;
     protected $damage;
 
-    public function __construct()
+    public function __construct($weaponName = "", $weaponDamage = null)
     {
-        $weaponName = $this->getGenerateRandomDescription('attack');
         parent::__construct($weaponName);
-
-        $this->damage = rand(1,30);
+        $this->itemName = $weaponName;
+        $this->damage = $weaponDamage;
+        if($weaponName == ""){
+            $this->itemName = $this->getGenerateRandomDescription('attack');
+        }
+        if($weaponDamage == null || $weaponDamage == 0){
+            $this->damage = rand(1,30);
+        }
     }
 
     public function getDamage(): float{

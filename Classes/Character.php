@@ -21,6 +21,7 @@ class Character
     }
 
     public function takeDamage($damage){
+
         $damageThrougArmor = $damage * (1 - $this->armor->getResistance());
         $this->health -= $damageThrougArmor;
         if ($this->health <= 0){
@@ -28,12 +29,12 @@ class Character
         }
     }
 
-    public function switchWeapon(string $weaponName, string $weaponDescription){
-        $this->weapon = new Weapon($weaponName, $weaponDescription);
+    public function switchWeapon(string $weaponName, string $weaponDamage){
+        $this->weapon = new Weapon($weaponName, $weaponDamage);
     }
 
-    public function switchArmor(string $armorName, string $armorDescription){
-        $this->armor = new Armor($armorName, $armorDescription);
+    public function switchArmor(string $armorName, string $armorResistance){
+        $this->armor = new Armor($armorName, $armorResistance);
     }
     public function setHealth($health){
         $this->health = $health;

@@ -30,26 +30,7 @@ class GameHandlerTest extends \PHPUnit\Framework\TestCase
         $turn = $this->gameHandler->getGameTurn();
         $this->assertEquals(1, $turn, "the next turn does not seem to be turn 1");
     }
-
-    /**
-     * @test
-     */
-    public function randomWeaponSpawnsOneOfTheAllowedWeapons(){
-        $characters = $this ->gameHandler->getCharacters();
-        foreach ($characters as $char){
-            $this->assertContains($char->getWeaponName(), $this->allowedWeapons,
-                "the random weapon is not part of the allowed weapons list");
-        }
-    }
-    /**
-     * @test
-     */
-    public function randomArmorSpawnsOneOfTheAllowArmors(){
-        $character = $this->gameHandler->getCharacters();
-        foreach ($character as $char){
-            $this->assertContains($char->getArmorName(), $this->allowedArmor);
-        }
-    }
+    
 
 
 
