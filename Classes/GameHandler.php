@@ -49,11 +49,11 @@ class GameHandler implements GameHandlerInterface
         print($attacker . ' attacks ' . $target . ' with '. $this->characters[$attacker]->getWeaponName() . ' for ' . $damage . " damage \n");
         $negatedDamage = ($this->characters[$target]->getArmorResistance() * 100) . '%';
         print($target . "'s " . $this->characters[$target]->getArmorName() ." negated " . $negatedDamage . " of the damage \n");
-        usleep(500000); //sleep for 0.5 seconds
+        usleep(250000); //sleep for 0.5 seconds
         print( $target . ' now has ' . $this->characters[$target]->getHealth() . " hitpoints \n");
 
         $this->nextCharacterTurn($target);
-        usleep(500000);
+        usleep(250000);
         if ($this->checkIfGameIsWon() == false){
             $this->attack($target, $attacker);
         }
