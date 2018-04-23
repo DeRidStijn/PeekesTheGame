@@ -1,11 +1,10 @@
 <?php
 
 namespace Classes;
-use Traits\RandomDescriptionGenerator;
+
 class Character
 {
 
-    use RandomDescriptionGenerator;
     protected $name;
     protected $health;
     protected $weapon;
@@ -17,8 +16,8 @@ class Character
         $this->name = $name;
         $this->health = 50;
         $this->isAlive = true;
-        $this->weapon = new Weapon($weaponName, 'patat');
-        $this->armor = new Armor($armorName, 'soep');
+        $this->weapon = new Weapon($weaponName);
+        $this->armor = new Armor($armorName);
     }
 
     public function takeDamage($damage){

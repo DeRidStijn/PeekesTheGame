@@ -6,19 +6,17 @@ use Interfaces\ItemInterface;
 
 class Item implements ItemInterface
 {
+    use \Traits\RandomDescriptionGenerator;
+
+
     protected $itemName;
-    protected $itemDescription;
-    public function __construct($itemName, $itemDescription)
+    public function __construct($itemName)
     {
         $this->itemName = $itemName;
-        $this->itemDescription = $itemDescription;
     }
 
     public function getItemName(): string{
         return $this->itemName;
     }
 
-    public function getItemDescription(): string{
-        return $this->itemDescription;
-    }
 }

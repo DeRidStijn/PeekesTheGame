@@ -4,27 +4,15 @@ namespace Classes;
 
 class Armor extends Item
 {
-    protected $armorName;
+    use \Traits\RandomDescriptionGenerator;
     protected $armorResistance;
 
-    public function __construct(string $armorName, string $armorDescription)
+    public function __construct(string $armorName)
     {
-        parent::__construct($armorName, $armorDescription);
+        $armorName = $this->getGenerateRandomDescription('defence');
+        parent::__construct($armorName);
 
-        switch ($armorName){
-            case 'unarmed': $this->armorResistance = 0;
-                break;
-            case 'leather': $this->armorResistance = 0.10;
-                break;
-            case 'iron': $this->armorResistance = 0.30;
-                break;
-            case 'platinum': $this->armorResistance = 0.60;
-                break;
-            default:
-                $this->itemName = 'unarmed' &&
-                $this->armorResistance = 0;
-
-        }
+        $this->armorResistance = (rand(0,60)) / 100;
     }
 
     public function getArmorName(): string{
